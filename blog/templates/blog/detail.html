@@ -1,9 +1,11 @@
-  {% load static %}
+
+
+
 <!doctype html>
+
 <html lang="en">
-
   <head>
-
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -50,7 +52,7 @@
   <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home' %}">Ankur Singh</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Ankur's blog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -58,59 +60,30 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="">Twitter</a>
       <a class="nav-item nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-item nav-link" href="{% url 'allblogs' %}" active>Blog</a>
     </div>
   </div>
 </nav>
   </header>
 
 <main role="main">
+  <div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Welcome to my home</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <p>
-        <a href="mailto:ankursingh2025@gmail.com" class="btn btn-primary my-2">Email me!</a>
+<h1 class="text-center pt-3">{{ blog.title}}</h1>
 
-      </p>
-      <img class="img-fluid" src="{% static 'me.jpeg' %}" >
-    </div>
+<hr/>
 
-  </section>
+    <img class="img-fluid" src="{{ blog.image.url }}" >
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-          {% endfor %}
-
-      </div>
-    </div>
-  </div>
-
-</main>
+<br/>
+<p>{{blog.body}}</p>
 
 <footer class="text-muted">
-  <div class="container">
+  <div class="container text-center">
     <p class="float-right">
       <a href="#">Back to top</a>
     </p>
-    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+    <p>Ankur Singh 2020</p>
   </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
